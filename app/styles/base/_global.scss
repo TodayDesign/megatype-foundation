@@ -1,0 +1,108 @@
+// =====================================================
+// ------------------ Megatype globals ------------------
+// =====================================================
+// @author Thomas Bredin-Grey <tom@studiothick.com>
+// Megatype: https://github.com/StudioThick/megatype
+// =====================================================
+
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    background-color: site-color(white);
+}
+
+
+body {
+    line-height: 2rem;
+    font-family: font-family-of($serif);
+    font-style: normal;
+}
+
+
+// common animation keyframes
+// fade in
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+// fade out
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.sans {
+    font-family: font-family-of($sans);
+}
+
+.serif {
+    font-family: font-family-of($serif);
+}
+
+
+// Foundation fixes for working with MegaType
+// Media object width bug, see https://github.com/zurb/foundation-sites/issues/8738
+.media-object-section {
+    flex: 0 1 auto;
+}
+
+// Orbit seems to have a positioning bug
+.orbit {
+    position: relative;
+}
+
+// reset some underlines on foundation items
+.accordion,
+.menu,
+.pagination,
+.tabs {
+    a {
+        background-image: none;
+    }
+}
+
+// reset space on tabs
+.tabs {
+    padding-bottom: 0;
+
+    li {
+        top: 0;
+    }
+}
+
+// fix checkbox/radio positioning
+input[type=checkbox],
+input[type=radio] {
+    + label {
+        top: 0;
+    }
+}
+
+// buttons typeface, fix margin
+.button {
+    font-family: font-family-of($sans);
+
+    p & {
+        margin-bottom: 0.25rem;
+    }
+}
+
+//badge size
+.badge {
+    line-height: 1.5;
+}

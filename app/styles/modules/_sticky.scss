@@ -1,0 +1,13 @@
+// custom foundation sticky styles
+
+.sticky {
+    overflow: hidden;
+    background-color: $white;
+
+    nav {
+        max-height: 100vh;
+        overflow: auto;
+        margin-right: -2rem;
+        padding-right: 2rem;
+    }
+}

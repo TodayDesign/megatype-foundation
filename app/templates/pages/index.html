@@ -1,0 +1,1090 @@
+{% extends "base.html" %}
+
+{% set pageName = "megatype-foundation" %}
+
+{% block header %}
+    <div class="row">
+        <div class="small-12 large-8 columns">
+            <h1>Megatype + Foundation</h1>
+            <p>Proof-of-concept integration of Foundation with MegaType.</p>
+            <p><a class="button primary" href="http://foundation.zurb.com/sites/docs/kitchen-sink.html" target="_blank">Foundation 6 Docs</a><a class="button primary" href="https://github.com/StudioThick/megatype" target="_blank">MegaType Docs</a></p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block alert %}
+<!--[if lt IE 9]>
+<div class="callout alert">
+    <div class="row columns">
+        <h3>You are using a legacy browser</h3>
+        <p>Not all components will function using the same patterns as modern browsers.</p>
+        <p><a href="http://foundation.zurb.com/sites/docs/kitchen-sink.html" target="_blank">Upgrade your browser now (recommended)</a></p>
+    </div>
+</div>
+<![endif]-->
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div id="main-column" class="small-12 large-8 xlarge-9 xxlarge-10 columns">
+            {{ docs.render('Typography', 'http://foundation.zurb.com/sites/docs/typography-base.html') }}
+
+            <div class="row">
+                <div class="columns xlarge-11 xxlarge-10">
+                    <h1>This is a Heading level 1</h1>
+                    <h2>This is a Heading level 2</h2>
+                    <p class="lead">The most merciful thing in the world, I think, is the inability of the human mind to correlate all its contents. </p>
+                    <p>We live on a placid island of ignorance in the midst of black seas of infinity, and it was not meant that we should voyage far. The sciences, each straining in its own direction, have hitherto harmed us little; but some day the piecing together of dissociated knowledge will open up such terrifying vistas of reality, and of our frightful position therein, that we shall either go mad from the revelation or flee from the deadly light into the peace and safety of a new dark age.</p>
+                    <h3>Mystery derelict found at sea</h3>
+                    <p><em>Vigilant</em> Arrives With Helpless Armed New Zealand Yacht in Tow. One Survivor and Dead Man Found Aboard. Tale of Desperate Battle and Deaths at Sea. Rescued Seaman Refuses Particulars of Strange Experience. Odd Idol Found in His Possession. Inquiry to Follow.</p>
+                    <p>The Morrison Co.'s freighter <em>Vigilant</em>, bound from Valparaiso, arrived this morning at its wharf in Darling Harbour, having in tow the battled and disabled but heavily armed steam yacht Alert of Dunedin, N.Z., which was sighted April 12th in S. Latitude 34° 21', W. Longitude 152° 17', with one living and one dead man aboard.</p>
+
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Abide', 'http://foundation.zurb.com/sites/docs/abide.html') }}
+
+            <form data-abide novalidate>
+                <div data-abide-error class='alert callout' style='display: none;'>
+                    <p><i class='fi-alert'></i> There are some errors in your form.</p>
+                </div>
+                <div class='row'>
+                    <div class='small-12 columns'>
+                        <label>Number Required
+                        <input type='text' placeholder='1234' aria-describedby='exampleHelpText' required pattern='number'>
+                        <span class='form-error'>
+                        Yo, you had better fill this out, it&#39;s required.
+                        </span>
+                        </label>
+                        <p class='help-text' id='exampleHelpText'>Here&#39;s how you use this input field!</p>
+                    </div>
+                    <div class='small-12 columns'>
+                        <label>Nothing Required!
+                        <input type='text' placeholder='Use me, or don&#39;t' aria-describedby='exampleHelpTex' data-abide-ignore>
+                        </label>
+                        <p class='help-text' id='exampleHelpTex'>This input is ignored by Abide using `data-abide-ignore`</p>
+                    </div>
+                    <div class='small-12 columns'>
+                        <label>Password Required
+                        <input type='password' id='password' placeholder='yeti4preZ' aria-describedby='exampleHelpText' required >
+                        <span class='form-error'>
+                        I&#39;m required!
+                        </span>
+                        </label>
+                        <p class='help-text' id='exampleHelpText'>Enter a password please.</p>
+                    </div>
+                    <div class='small-12 columns'>
+                        <label>Re-enter Password
+                        <input type='password' placeholder='yeti4preZ' aria-describedby='exampleHelpText2' required pattern='alpha_numeric' data-equalto='password'>
+                        <span class='form-error'>
+                        Hey, passwords are supposed to match!
+                        </span>
+                        </label>
+                        <p class='help-text' id='exampleHelpText2'>This field is using the `data-equalto='password'` attribute, causing it to match the password field above.</p>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='medium-6 columns'>
+                        <label>URL Pattern, not required, but throws error if it doesn&#39;t match the Regular Expression for a valid URL.
+                        <input type='text' placeholder='http://foundation.zurb.com' pattern='url'>
+                        </label>
+                    </div>
+                    <div class='medium-6 columns'>
+                        <label>
+                            European Cars, Choose One, it can&#39;t be the blank option.
+                            <select id='select' required>
+                                <option value=''></option>
+                                <option value='volvo'>Volvo</option>
+                                <option value='saab'>Saab</option>
+                                <option value='mercedes'>Mercedes</option>
+                                <option value='audi'>Audi</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <fieldset class='large-6 columns'>
+                        <legend>Choose Your Favorite, and this is required, so you have to pick one.</legend>
+                        <input type='radio' name='pokemon' value='Red' id='pokemonRed'><label for='pokemonRed'>Red</label>
+                        <input type='radio' name='pokemon' value='Blue' id='pokemonBlue' required><label for='pokemonBlue'>Blue</label>
+                        <input type='radio' name='pokemon' value='Yellow' id='pokemonYellow'><label for='pokemonYellow'>Yellow</label>
+                    </fieldset>
+                    <fieldset class='large-6 columns'>
+                        <legend>Choose Your Favorite - not required, you can leave this one blank.</legend>
+                        <input type='radio' name='pockets' value='Red' id='pocketsRed'><label for='pocketsRed'>Red</label>
+                        <input type='radio' name='pockets' value='Blue' id='pocketsBlue'><label for='pocketsBlue'>Blue</label>
+                        <input type='radio' name='pockets' value='Yellow' id='pocketsYellow'><label for='pocketsYellow'>Yellow</label>
+                    </fieldset>
+                    <fieldset class='large-6 columns'>
+                        <legend>Check these out</legend>
+                        <input id='checkbox1' type='checkbox'><label for='checkbox1'>Checkbox 1</label>
+                        <input id='checkbox2' type='checkbox' required><label for='checkbox2'>Checkbox 2</label>
+                        <input id='checkbox3' type='checkbox'><label for='checkbox3'>Checkbox 3</label>
+                    </fieldset>
+                </div>
+                <div class='row'>
+                    <fieldset class='large-6 columns'>
+                        <button class='button' type='submit' value='Submit'>Submit</button>
+                    </fieldset>
+                    <fieldset class='large-6 columns'>
+                        <button class='button' type='reset' value='Reset'>Reset</button>
+                    </fieldset>
+                </div>
+            </form>
+            <hr />
+
+            {{ docs.render('Accordion', 'http://foundation.zurb.com/sites/docs/accordion.html') }}
+
+            <ul class='accordion' data-accordion role='tablist'>
+                <li class='accordion-item is-active'>
+                    <!-- The tab title needs role='tab', an href, a unique ID, and aria-controls. -->
+                    <a href='#panel1d' role='tab' class='accordion-title' id='panel1d-heading' aria-controls='panel1d'>Accordion 1</a>
+                    <!-- The content pane needs an ID that matches the above href, role='tabpanel', data-tab-content, and aria-labelledby. -->
+                    <div id='panel1d' class='accordion-content' role='tabpanel' data-tab-content aria-labelledby='panel1d-heading'>
+                        Panel 1. Lorem ipsum dolor
+                    </div>
+                </li>
+                <li class='accordion-item'>
+                    <!-- The tab title needs role='tab', an href, a unique ID, and aria-controls. -->
+                    <a href='#panel1d' role='tab' class='accordion-title' id='panel1d-heading' aria-controls='panel1d'>Accordion 1</a>
+                    <!-- The content pane needs an ID that matches the above href, role='tabpanel', data-tab-content, and aria-labelledby. -->
+                    <div id='panel1d' class='accordion-content' role='tabpanel' data-tab-content aria-labelledby='panel1d-heading'>
+                        Panel 2. Lorem ipsum dolor
+                    </div>
+                </li>
+                <li class='accordion-item'>
+                    <!-- The tab title needs role='tab', an href, a unique ID, and aria-controls. -->
+                    <a href='#panel1d' role='tab' class='accordion-title' id='panel1d-heading' aria-controls='panel1d'>Accordion 1</a>
+                    <!-- The content pane needs an ID that matches the above href, role='tabpanel', data-tab-content, and aria-labelledby. -->
+                    <div id='panel1d' class='accordion-content' role='tabpanel' data-tab-content aria-labelledby='panel1d-heading'>
+                        Panel 3. Lorem ipsum dolor
+                    </div>
+                </li>
+            </ul>
+            <hr />
+
+            {{ docs.render('Accordion Menu', 'http://foundation.zurb.com/sites/docs/accordion-menu.html') }}
+
+            <ul class='vertical menu' data-accordion-menu>
+                <li>
+                    <a href='#'>Item 1</a>
+                    <ul class='menu vertical nested is-active'>
+                        <li>
+                            <a href='#'>Item 1A</a>
+                            <ul class='menu vertical nested'>
+                                <li><a href='#'>Item 1Ai</a></li>
+                                <li><a href='#'>Item 1Aii</a></li>
+                                <li><a href='#'>Item 1Aiii</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#'>Item 1B</a></li>
+                        <li><a href='#'>Item 1C</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href='#'>Item 2</a>
+                    <ul class='menu vertical nested'>
+                        <li><a href='#'>Item 2A</a></li>
+                        <li><a href='#'>Item 2B</a></li>
+                    </ul>
+                </li>
+                <li><a href='#'>Item 3</a></li>
+            </ul>
+            <hr />
+
+            {{ docs.render('Badge', 'http://foundation.zurb.com/sites/docs/badge.html') }}
+
+            <span class='secondary badge'>2</span>
+            <span class='success badge'>3</span>
+            <span class='alert badge'>A</span>
+            <span class='warning badge'>B</span>
+            <hr />
+
+            {{ docs.render('Breadcrumbs', 'http://foundation.zurb.com/sites/docs/breadcrumbs.html') }}
+
+            <nav aria-label='You are here:' role='navigation'>
+                <ul class='breadcrumbs'>
+                    <li><a href='#'>Home</a></li>
+                    <li><a href='#'>Features</a></li>
+                    <li class='disabled'>Gene Splicing</li>
+                    <li>
+                        <span class='show-for-sr'>Current: </span> Cloning
+                    </li>
+                </ul>
+            </nav>
+            <hr />
+
+            {{ docs.render('Button', 'http://foundation.zurb.com/sites/docs/button.html') }}
+
+            <!-- Anchors (links) -->
+            <a href='#' class='button'>Learn More</a>
+            <a href='#' class='button'>View All Features</a>
+            <!-- Buttons (colors) -->
+            <a class="secondary button" href="#">Secondary Color</a>
+            <a class="success button" href="#">Success Color</a>
+            <a class="alert button" href="#">Alert Color</a>
+            <a class="warning button" href="#">Warning Color</a>
+            <a class="disabled button" href="#">Disabled Button</a>
+            <!-- Buttons (sizing) -->
+            <a class='tiny button' href='#'>Tiny</a>
+            <a class='small button' href='#'>Small</a>
+            <a class='large button' href='#'>Large</a>
+            <a class='expanded button' href='#'>Expanded</a>
+            <!-- Buttons (dropdown) -->
+            <button class="dropdown button">Dropdown Button</button>
+            <hr />
+
+            {{ docs.render('Button Group', 'http://foundation.zurb.com/sites/docs/button-group.html') }}
+
+            <div class='button-group'>
+                <a class='button'>One</a>
+                <a class='button'>Two</a>
+                <a class='button'>Three</a>
+            </div>
+            <div class="expanded button-group">
+                <a class="button">Expanded</a>
+                <a class="button">Button</a>
+                <a class="button">Group</a>
+            </div>
+            <div class="stacked-for-small button-group">
+              <a class="button">Stacked</a>
+              <a class="button">On</a>
+              <a class="button">Small</a>
+              <a class="button">Breakpoint</a>
+            </div>
+            <div class="button-group">
+                <a class="button">Primary Action</a>
+                <a class="dropdown button arrow-only">
+                    <span class="show-for-sr">Show menu</span>
+                </a>
+            </div>
+            <hr />
+
+            {{ docs.render('Callout', 'http://foundation.zurb.com/sites/docs/callout.html') }}
+
+            <div class='callout'>
+                <h5>This is a default callout.</h5>
+                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                <p><a href='#'>It&#39;s dangerous to go alone, take this.</a></p>
+            </div>
+            <div class='callout secondary'>
+                <h5>This is a secondary callout</h5>
+                <p>It has an easy to override visual style, and uses the secondary colour.</p>
+                <p><a href='#'>It&#39;s dangerous to go alone, take this.</a></p>
+            </div>
+            <div class='callout primary'>
+                <h5>This is a primary callout</h5>
+                <p>It has an easy to override visual style, and uses the primary colour.</p>
+                <p><a href='#'>It&#39;s dangerous to go alone, take this.</a></p>
+            </div>
+            <div class='callout success'>
+                <h5>This is a success callout</h5>
+                <p>It has an easy to override visual style, and uses the success colour.</p>
+                <p><a href='#'>It&#39;s dangerous to go alone, take this.</a></p>
+            </div>
+            <div class='callout info'>
+                <h5>This is an info callout</h5>
+                <p>It has an easy to override visual style, and uses the info colour.</p>
+                <p><a href='#'>It&#39;s dangerous to go alone, take this.</a></p>
+            </div>
+            <div class='callout warning'>
+                <h5>This is a warning callout</h5>
+                <p>It has an easy to override visual style, and uses the warning colour.</p>
+                <p><a href='#'>It&#39;s dangerous to go alone, take this.</a></p>
+            </div>
+            <div class='callout alert'>
+                <h5>This is an alert callout</h5>
+                <p>It has an easy to override visual style, and uses the alert colour.</p>
+                <p><a href='#'>It&#39;s dangerous to go alone, take this.</a></p>
+            </div>
+            <div class='callout transparent'>
+                <h5>This is an transparent callout</h5>
+                <p>It has an easy to override visual style, and uses a transparent background.</p>
+                <p><a href='#'>It&#39;s dangerous to go alone, take this.</a></p>
+            </div>
+            <hr />
+
+            {{ docs.render('Close Button', 'http://foundation.zurb.com/sites/docs/close-button.html') }}
+
+            <div class='callout'>
+                <button class='close-button' aria-label='Close alert' type='button'>
+                <span aria-hidden='true'>&times;</span>
+                </button>
+                <p>This is a static close button example.</p>
+            </div>
+            <hr />
+
+            {{ docs.render('Drilldown Menu', 'http://foundation.zurb.com/sites/docs/drilldown-menu.html') }}
+
+            <ul class='vertical menu' data-drilldown style='width: 200px' id='m1'>
+                <li>
+                    <a href='#'>Item 1</a>
+                    <ul class='vertical menu' id='m2'>
+                        <li>
+                            <a href='#'>Item 1A</a>
+                            <ul class='vertical menu' id='m3'>
+                                <li><a href='#'>Item 1Aa</a></li>
+                                <li><a href='#'>Item 1Ba</a></li>
+                                <li><a href='#'>Item 1Ca</a></li>
+                                <li><a href='#'>Item 1Da</a></li>
+                                <li><a href='#'>Item 1Ea</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#'>Item 1B</a></li>
+                        <li><a href='#'>Item 1C</a></li>
+                        <li><a href='#'>Item 1D</a></li>
+                        <li><a href='#'>Item 1E</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href='#'>Item 2</a>
+                    <ul class='vertical menu'>
+                        <li><a href='#'>Item 2A</a></li>
+                        <li><a href='#'>Item 2B</a></li>
+                        <li><a href='#'>Item 2C</a></li>
+                        <li><a href='#'>Item 2D</a></li>
+                        <li><a href='#'>Item 2E</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href='#'>Item 3</a>
+                    <ul class='vertical menu'>
+                        <li><a href='#'>Item 3A</a></li>
+                        <li><a href='#'>Item 3B</a></li>
+                        <li><a href='#'>Item 3C</a></li>
+                        <li><a href='#'>Item 3D</a></li>
+                        <li><a href='#'>Item 3E</a></li>
+                    </ul>
+                </li>
+                <li><a href=&#39;#&#39;> Item 4</a></li>
+            </ul>
+            <hr />
+
+            {{ docs.render('Dropdown', 'http://foundation.zurb.com/sites/docs/dropdown.html') }}
+
+            <button class='button' type='button' data-toggle='example-dropdown'>Toggle Dropdown</button>
+            <div class='dropdown-pane' id='example-dropdown' data-dropdown>
+                Just some junk that needs to be said. Or not. Your choice.
+            </div>
+            <hr />
+
+            {{ docs.render('Dropdown Menu', 'http://foundation.zurb.com/sites/docs/dropdown-menu.html') }}
+
+            <ul class='dropdown menu' data-dropdown-menu>
+                <li>
+                    <a>Item 1</a>
+                    <ul class='menu'>
+                        <li><a href='#'>Item 1A Loooong</a></li>
+                        <li>
+                            <a href=&#39;#&#39;> Item 1 sub</a>
+                            <ul class=&#39;menu&#39;>
+                                <li><a href=&#39;#&#39;>Item 1 subA</a></li>
+                                <li><a href=&#39;#&#39;>Item 1 subB</a></li>
+                                <li>
+                                    <a href=&#39;#&#39;> Item 1 sub</a>
+                                    <ul class=&#39;menu&#39;>
+                                        <li><a href=&#39;#&#39;>Item 1 subA</a></li>
+                                        <li><a href=&#39;#&#39;>Item 1 subB</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href=&#39;#&#39;> Item 1 sub</a>
+                                    <ul class=&#39;menu&#39;>
+                                        <li><a href=&#39;#&#39;>Item 1 subA</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href='#'>Item 1B</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href='#'>Item 2</a>
+                    <ul class='menu'>
+                        <li><a href='#'>Item 2A</a></li>
+                        <li><a href='#'>Item 2B</a></li>
+                    </ul>
+                </li>
+                <li><a href='#'>Item 3</a></li>
+                <li><a href=&#39;#&#39;>Item 4</a></li>
+            </ul>
+            <hr />
+
+            {{ docs.render('Equalizer', 'http://foundation.zurb.com/sites/docs/equalizer.html') }}
+
+            <div class='row' data-equalizer data-equalize-on='medium' id='test-eq'>
+                <div class='medium-4 columns'>
+                    <div class='callout' data-equalizer-watch>
+                        <img src='http://placehold.it/250x250/b7b8c7/f3f1ef?text=Sample+image'>
+                    </div>
+                </div>
+                <div class='medium-4 columns'>
+                    <div class='callout' data-equalizer-watch>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+                    </div>
+                </div>
+                <div class='medium-4 columns'>
+                    <div class='callout' data-equalizer-watch>
+                        <img src='http://placehold.it/300x220/b7b8c7/f3f1ef?text=Sample+image'>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <h2 id="flex-grid">Flex Grid</h2>
+            {{ docs.render('Flex Grid', 'http://foundation.zurb.com/sites/docs/flex-grid.html') }}
+
+            <div class="row display">
+                <div class="small-6 columns">
+                    6 columns
+                </div>
+                <div class="small-6 columns">
+                    6 columns
+                </div>
+            </div>
+            <div class="row display">
+                <div class="medium-6 large-4 columns">
+                    12/6/4 columns
+                </div>
+                <div class="medium-6 large-8 columns">
+                    12/6/8 columns
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Flex Video', 'http://foundation.zurb.com/sites/docs/flex-video.html') }}
+
+            <!--[if !IE]> -->
+            <div class='flex-video'>
+                <iframe width='420' height='315' src='https://www.youtube.com/embed/V9gkYw35Vws' frameborder='0' allowfullscreen></iframe>
+            </div>
+            <!-- <![endif]-->
+
+            <!--[if gte IE 9]>
+            <div class='flex-video'>
+                <iframe width='420' height='315' src='https://www.youtube.com/embed/V9gkYw35Vws' frameborder='0' allowfullscreen></iframe>
+            </div>
+            <![endif]-->
+
+            <!--[if lt IE 9]>
+            <div class="callout alert only-legacy">
+                <p>Unsupported in legacy browsers. Youtube and Vimeo do not provide any support for browsers older than IE9. </p>
+            </div>
+            <![endif]-->
+
+            <hr />
+
+            {{ docs.render('Float Classes', 'http://foundation.zurb.com/sites/docs/float-classes.html') }}
+
+            <div class='callout clearfix'>
+                <a class='button float-left'>Left</a>
+                <a class='button float-right'>Right</a>
+            </div>
+            <hr />
+
+            {{ docs.render('Forms', 'http://foundation.zurb.com/sites/docs/forms.html') }}
+
+            <form>
+                <label>Input Label
+                <input type='text' placeholder='.small-12.columns' aria-describedby='exampleHelpText'>
+                </label>
+                <p class='help-text' id='exampleHelpText'>Here&#39;s how you use this input field!</p>
+                <label>
+                How many puppies?
+                <input type='number' value='100'>
+                </label>
+                <label>
+                What books did you read over summer break?
+                <textarea placeholder='None'></textarea>
+                </label>
+                <label>
+                    Select Menu
+                    <select>
+                        <option value='husker'>Husker</option>
+                        <option value='starbuck'>Starbuck</option>
+                        <option value='hotdog'>Hot Dog</option>
+                        <option value='apollo'>Apollo</option>
+                    </select>
+                </label>
+                <div class='row'>
+                    <fieldset class='large-6 columns'>
+                        <legend>Choose Your Favorite</legend>
+                        <input type='radio' name='pokemon' value='Red' id='pokemonRed' required><label for='pokemonRed'>Red</label>
+                        <input type='radio' name='pokemon' value='Blue' id='pokemonBlue'><label for='pokemonBlue'>Blue</label>
+                        <input type='radio' name='pokemon' value='Yellow' id='pokemonYellow'><label for='pokemonYellow'>Yellow</label>
+                    </fieldset>
+                    <fieldset class='large-6 columns'>
+                        <legend>Check these out</legend>
+                        <input id='checkbox1' type='checkbox'><label for='checkbox1'>Checkbox 1</label>
+                        <input id='checkbox2' type='checkbox'><label for='checkbox2'>Checkbox 2</label>
+                        <input id='checkbox3' type='checkbox'><label for='checkbox3'>Checkbox 3</label>
+                    </fieldset>
+                </div>
+                <div class='row'>
+                    <div class='small-3 columns'>
+                        <label for='middle-label' class='text-right middle'>Label</label>
+                    </div>
+                    <div class='small-9 columns'>
+                        <input type='text' id='middle-label' placeholder='Right- and middle-aligned text input'>
+                    </div>
+                </div>
+                <div class='input-group'>
+                    <span class='input-group-label'>$</span>
+                    <input class='input-group-field' type='url'>
+                    <a class='input-group-button button'>Submit</a>
+                </div>
+            </form>
+            <hr />
+
+            {{ docs.render('Grid', 'http://foundation.zurb.com/sites/docs/grid.html') }}
+
+            <div class="row display">
+                <div class="small-2 medium-3 large-4 columns">
+                    2/3/4 columns
+                </div>
+                <div class="small-4 medium-3 large-4 columns">
+                    4/3/4 columns
+                </div>
+                <div class="small-6 large-4 columns">
+                    6/6/4 columns
+                </div>
+            </div>
+            <div class="row display">
+                <div class="large-3 columns">
+                    12/12/3 columns
+                </div>
+                <div class="large-6 columns">
+                    12/12/6 columns
+                </div>
+                <div class="large-3 columns">
+                    12/12/3 columns
+                </div>
+            </div>
+            <div class="row display">
+                <div class="small-6 large-2 columns">
+                    6/6/2 columns
+                </div>
+                <div class="small-6 large-8 columns">
+                    6/6/8 columns
+                </div>
+                <div class="small-12 large-2 columns">
+                    12/12/2 columns
+                </div>
+            </div>
+            <div class="row display">
+                <div class="small-3 columns">
+                    3 columns
+                </div>
+                <div class="small-9 columns">
+                    9 columns
+                </div>
+            </div>
+            <div class="row display">
+                <div class="medium-8 large-4 columns">
+                    12/8/4 columns
+                </div>
+                <div class="medium-4 large-8 columns">
+                    12/4/8 columns
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Interchange', 'http://foundation.zurb.com/sites/docs/interchange.html') }}
+
+            <img data-interchange='[http://placehold.it/200x200/b7b8c7/f3f1ef?text=Sample+image, small], [http://placehold.it/400x400/b7b8c7/f3f1ef?text=Sample+image, medium], [http://placehold.it/700x700/b7b8c7/f3f1ef?text=Sample+image, large]'>
+            <hr />
+
+            {{ docs.render('Label', 'http://foundation.zurb.com/sites/docs/label.html') }}
+
+            <span class='label'>Label</span>
+            <span class='secondary label'>Secondary Label</span>
+            <span class='success label'>Success Label</span>
+            <span class='alert label'>Alert Label</span>
+            <span class='warning label'>Warning Label</span>
+            <hr />
+
+            {{ docs.render('Magellan', 'http://foundation.zurb.com/sites/docs/magellan.html') }}
+
+            <ul class="horizontal menu" data-magellan>
+                <li><a href="#first">First Arrival</a></li>
+                <li><a href="#second">Second Arrival</a></li>
+                <li><a href="#third">Third Arrival</a></li>
+            </ul>
+            <div class="sections">
+                <section id="first" data-magellan-target="first">
+                    <h4>First section</h4>
+                    <p>Duis scelerisque ligula ut metus rhoncus scelerisque. Integer ut egestas metus. Nulla facilisi. Aenean luctus magna lobortis ligula rhoncus, sit amet lacinia lorem  sagittis. Sed ultrices at metus id aliquet. Vestibulum in condimentum quam, id ornare erat. Vivamus nec justo quis ex fringilla condimentum ac non quam.</p>
+                </section>
+                <section id="second" data-magellan-target="second">
+                    <h4>Second section</h4>
+                    <p>Sed vulputate, felis interdum molestie viverra, neque urna placerat dui, ac efficitur est magna eu tellus. Nunc sodales consequat eros at bibendum. Vestibulum hendrerit gravida elit non eleifend. Nunc at vehicula ipsum. Vestibulum eu suscipit felis. Proin ipsum felis, consequat congue quam ac, efficitur tincidunt ex. Morbi accumsan sem iaculis nunc malesuada tincidunt.</p>
+                </section>
+                <section id="third" data-magellan-target="third">
+                    <h4>Second section</h4>
+                    <p>Aliquam orci orci, maximus a pulvinar id, tincidunt a neque. Suspendisse eros diam, finibus et faucibus ac, suscipit feugiat orci. Morbi scelerisque sem id blandit malesuada. Donec suscipit tincidunt dolor in blandit. Nam rhoncus risus vitae lacinia dictum. Cras lobortis, nulla non faucibus mattis, tellus nibh condimentum eros, posuere volutpat arcu risus vel ante. In ut ullamcorper eros, et vestibulum risus. Fusce auctor risus vitae diam viverra tincidunt.</p>
+                </section>
+            </div>
+            <hr />
+
+            {{ docs.render('Media Object', 'http://foundation.zurb.com/sites/docs/media-object.html') }}
+
+            <div class='media-object'>
+                <div class='media-object-section'>
+                    <img src='http://placehold.it/200x200/b7b8c7/f3f1ef?text=Sample+image'>
+                </div>
+                <div class='media-object-section'>
+                    <h4>Dreams feel real while we&#39;re in them.</h4>
+                    <p>I&#39;m going to improvise. Listen, there&#39;s something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Menu', 'http://foundation.zurb.com/sites/docs/menu.html') }}
+
+            <ul class='menu'>
+                <li class="active"><a href='#'>One</a></li>
+                <li><a href='#'>Two</a></li>
+                <li><a href='#'>Three</a></li>
+                <li><a href='#'>Four</a></li>
+            </ul>
+            <br>
+            <div class="row">
+                <div class="columns small-9 medium-6 large-4">
+                    <ul class="menu vertical">
+                        <li class="active"><a href="#">One</a></li>
+                        <li><a href="#">Two</a></li>
+                        <li><a href="#">Three</a></li>
+                        <li><a href="#">Four</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr />
+
+            {{ docs.render('Off-canvas', 'http://foundation.zurb.com/sites/docs/off-canvas.html') }}
+
+            <button type='button' class='button' data-toggle='offCanvasLeft'>Open Menu</button>
+
+            <hr />
+
+            {{ docs.render('Orbit', 'http://foundation.zurb.com/sites/docs/orbit.html') }}
+
+            <!--[if lt IE 9]>
+            <div class="callout alert only-legacy">
+                <p>Orbits make heavy use of unsupported script dependancies so fall back to a linear gallery in legacy browsers</p>
+            </div>
+            <![endif]-->
+
+            <h4>With text content</h4>
+            <br>
+
+            <div class='orbit' role='region' aria-label='Favorite Space Pictures' data-orbit>
+                <ul class='orbit-container'>
+                    <button class='orbit-previous' aria-label='previous'><span class="ss-icon ss-left"></span><span class='show-for-sr'>Previous Slide</span></button>
+                    <button class='orbit-next' aria-label='next'><span class='show-for-sr'>Next Slide</span><span class="ss-icon ss-right"></span></button>
+                    <li class='is-active orbit-slide'>
+                        <div>
+                            <h3 class='text-center'>You can also throw some text in here!</h3>
+                            <p class='text-center'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+                            <h3 class='text-center'>This Orbit slide has chill</h3>
+                        </div>
+                    </li>
+                    <li class='orbit-slide'>
+                        <div>
+                            <h3 class='text-center'>You can also throw some text in here!</h3>
+                            <p class='text-center'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+                            <h3 class='text-center'>This Orbit slide has chill</h3>
+                        </div>
+                    </li>
+                    <li class='orbit-slide'>
+                        <div>
+                            <h3 class='text-center'>You can also throw some text in here!</h3>
+                            <p class='text-center'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+                            <h3 class='text-center'>This Orbit slide has chill</h3>
+                        </div>
+                    </li>
+                    <li class='orbit-slide'>
+                        <div>
+                            <h3 class='text-center'>You can also throw some text in here!</h3>
+                            <p class='text-center'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+                            <h3 class='text-center'>This Orbit slide has chill</h3>
+                        </div>
+                    </li>
+                </ul>
+                <nav class='orbit-bullets'>
+                    <button class='is-active' data-slide='0'><span class='show-for-sr'>First slide details.</span><span class='show-for-sr'>Current Slide</span></button>
+                    <button data-slide='1'><span class='show-for-sr'>Second slide details.</span></button>
+                    <button data-slide='2'><span class='show-for-sr'>Third slide details.</span></button>
+                    <button data-slide='3'><span class='show-for-sr'>Fourth slide details.</span></button>
+                </nav>
+            </div>
+
+            <h4>With captioned images</h4>
+            <br>
+
+            <div class="orbit" role="region" aria-label="Image gallery" data-orbit>
+              <ul class="orbit-container">
+                <button class='orbit-previous' aria-label='previous'><span class="ss-icon ss-left"></span><span class='show-for-sr'>Previous Slide</span></button>
+                <button class='orbit-next' aria-label='next'><span class='show-for-sr'>Next Slide</span><span class="ss-icon ss-right"></span></button>
+                <li class="is-active orbit-slide">
+                  <img class="orbit-image" src="http://placehold.it/900x420/b7b8c7/f3f1ef?text=Sample+image+1" alt="Sample image 1">
+                  <figcaption class="orbit-caption">Sample image caption 1.</figcaption>
+                </li>
+                <li class="orbit-slide">
+                  <img class="orbit-image" src="http://placehold.it/900x420/b7b8c7/f3f1ef?text=Sample+image+2" alt="Sample image 2">
+                  <figcaption class="orbit-caption">Sample image caption 2.</figcaption>
+                </li>
+                <li class="orbit-slide">
+                  <img class="orbit-image" src="http://placehold.it/900x420/b7b8c7/f3f1ef?text=Sample+image+3" alt="Sample image 3">
+                  <figcaption class="orbit-caption">Sample image caption 3.</figcaption>
+                </li>
+                <li class="orbit-slide">
+                  <img class="orbit-image" src="http://placehold.it/900x420/b7b8c7/f3f1ef?text=Sample+image+4" alt="Sample image 4">
+                  <figcaption class="orbit-caption">Sample image caption 4.</figcaption>
+                </li>
+              </ul>
+              <nav class="orbit-bullets">
+                <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+                <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+                <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+                <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+              </nav>
+            </div>
+            <hr />
+
+            {{ docs.render('Pagination', 'http://foundation.zurb.com/sites/docs/pagination.html') }}
+
+            <ul class='pagination' role='navigation' aria-label='Pagination'>
+                <li class='disabled'>Previous <span class='show-for-sr'>page</span></li>
+                <li class='current'><span class='show-for-sr'>You&#39;re on page</span> 1</li>
+                <li><a href='#' aria-label='Page 2'>2</a></li>
+                <li><a href='#' aria-label='Page 3'>3</a></li>
+                <li><a href='#' aria-label='Page 4'>4</a></li>
+                <li class='ellipsis' aria-hidden='true'></li>
+                <li><a href='#' aria-label='Page 12'>12</a></li>
+                <li><a href='#' aria-label='Page 13'>13</a></li>
+                <li><a href='#' aria-label='Next page'>Next <span class='show-for-sr'>page</span></a></li>
+            </ul>
+            <hr />
+
+            {{ docs.render('Progress Bar', 'http://foundation.zurb.com/sites/docs/progress-bar.html') }}
+
+            <div class='success progress' role='progressbar' tabindex='0' aria-valuenow='25' aria-valuemin='0' aria-valuetext='25 percent' aria-valuemax='100'>
+                <div class='progress-meter' style='width: 25%'>
+                    <p class='progress-meter-text'>25%</p>
+                </div>
+            </div>
+            <div class='warning progress'>
+                <div class='progress-meter' style='width: 50%'>
+                    <p class='progress-meter-text'>50%</p>
+                </div>
+            </div>
+            <div class='alert progress'>
+                <div class='progress-meter' style='width: 75%'>
+                    <p class='progress-meter-text'>75%</p>
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Responsive Menu', 'http://foundation.zurb.com/sites/docs/responsive-menu.html') }}
+
+            <ul class='vertical medium-horizontal menu'>
+                <li><a href='#'>Item 1</a></li>
+                <li><a href='#'>Item 2</a></li>
+                <li><a href='#'>Item 3</a></li>
+            </ul>
+            <hr />
+
+            {{ docs.render('Responsive Toggle', 'http://foundation.zurb.com/sites/docs/responsive-toggle.html') }}
+
+            <div class='title-bar' data-responsive-toggle='example-menu' data-hide-for='medium'>
+                <button class='menu-icon' type='button' data-toggle></button>
+                <div class='title-bar-title'>Menu</div>
+            </div>
+            <div class='top-bar' id='example-menu'>
+                <div class='top-bar-left'>
+                    <ul class='dropdown menu' data-dropdown-menu>
+                        <li class='menu-text'>Site Title</li>
+                        <li class='has-submenu'>
+                            <a href='#'>One</a>
+                            <ul class='submenu menu vertical' data-submenu>
+                                <li><a href='#'>One</a></li>
+                                <li><a href='#'>Two</a></li>
+                                <li><a href='#'>Three</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#'>Two</a></li>
+                        <li><a href='#'>Three</a></li>
+                    </ul>
+                </div>
+                <div class='top-bar-right'>
+                    <ul class='menu'>
+                        <li><input type='search' placeholder='Search'></li>
+                        <li><button type='button' class='button'>Search</button></li>
+                    </ul>
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Reveal', 'http://foundation.zurb.com/sites/docs/reveal.html') }}
+
+            <p><a data-open='exampleModal1'>Click me for a modal</a></p>
+            <div class='reveal' id='exampleModal1' data-reveal>
+                <h1>Awesome. I Have It.</h1>
+                <p class='lead'>Your couch. It is mine.</p>
+                <p>I&#39;m a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+                <button class='close-button' data-close aria-label='Close reveal' type='button'>
+                <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <hr />
+
+            {{ docs.render('Slider', 'http://foundation.zurb.com/sites/docs/slider.html') }}
+
+            <div class='slider' data-slider data-initial-start=&#39;50&#39; data-end=&#39;200&#39;>
+                <span class='slider-handle'  data-slider-handle role='slider'></span>
+                <span class='slider-fill' data-slider-fill></span>
+                <input type='hidden'>
+            </div>
+            <div class='slider vertical' data-slider data-initial-start=&#39;25&#39; data-end=&#39;200&#39; data-vertical='true'>
+                <span class='slider-handle' data-slider-handle role='slider'></span>
+                <span class='slider-fill' data-slider-fill></span>
+                <input type='hidden'>
+            </div>
+            <div class='slider' data-slider data-initial-start=&#39;25&#39; data-initial-end=&#39;75&#39;>
+                <span class='slider-handle' data-slider-handle role='slider'></span>
+                <span class='slider-fill' data-slider-fill></span>
+                <span class='slider-handle' data-slider-handle role='slider'></span>
+                <input type='hidden'>
+                <input type='hidden'>
+            </div>
+            <hr />
+
+            {{ docs.render('Sticky', 'http://foundation.zurb.com/sites/docs/sticky.html') }}
+
+            <!--[if lt IE 9]>
+            <div class="callout alert only-legacy">
+                <p>Unsupported in legacy browsers. Sticky elements will still render correctly but will not follow scrolling. </p>
+            </div>
+            <![endif]-->
+
+            <div class='row'>
+                <div class='columns small-6' id='example1'>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+                <div class='columns small-6 right' data-sticky-container>
+                    <div class='sticky' data-sticky data-anchor='example1'>
+                        <img class='thumbnail' src='http://placehold.it/320x200/b7b8c7/f3f1ef?text=Sample+image'>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            {# {{ docs.render('Switch', 'http://foundation.zurb.com/sites/docs/switch.html') }}
+
+            <div class='switch tiny'>
+                <input class='switch-input' id='tinySwitch' type='checkbox' name='exampleSwitch'>
+                <label class='switch-paddle' for='tinySwitch'>
+                <span class='show-for-sr'>Tiny Sandwiches Enabled</span>
+                </label>
+            </div>
+            <div class='switch small'>
+                <input class='switch-input' id='smallSwitch' type='checkbox' name='exampleSwitch'>
+                <label class='switch-paddle' for='smallSwitch'>
+                <span class='show-for-sr'>Small Portions Only</span>
+                </label>
+            </div>
+            <div class='switch large'>
+                <input class='switch-input' id='largeSwitch' type='checkbox' name='exampleSwitch'>
+                <label class='switch-paddle' for='largeSwitch'>
+                <span class='show-for-sr'>Show Large Elephants</span>
+                </label>
+            </div>
+            <hr /> #}
+
+            {{ docs.render('Table', 'http://foundation.zurb.com/sites/docs/table.html') }}
+
+            <table>
+                <thead>
+                    <tr>
+                        <th width='200'>Table Header</th>
+                        <th>Table Header</th>
+                        <th width='150'>Table Header</th>
+                        <th width='150'>Table Header</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Content Goes Here</td>
+                        <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+                        <td>Content Goes Here</td>
+                        <td>Content Goes Here</td>
+                    </tr>
+                    <tr>
+                        <td>Content Goes Here</td>
+                        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+                        <td>Content Goes Here</td>
+                        <td>Content Goes Here</td>
+                    </tr>
+                    <tr>
+                        <td>Content Goes Here</td>
+                        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+                        <td>Content Goes Here</td>
+                        <td>Content Goes Here</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+
+            {{ docs.render('Tabs', 'http://foundation.zurb.com/sites/docs/tabs.html') }}
+
+            <ul class='tabs' data-tabs id='example-tabs'>
+                <li class='tabs-title is-active'><a href='#panel1' aria-selected='true'>Tab 1</a></li>
+                <li class='tabs-title'><a href='#panel2'>Tab 2</a></li>
+                <li class='tabs-title'><a href='#panel3'>Tab 3</a></li>
+                <li class='tabs-title'><a href='#panel4'>Tab 4</a></li>
+                <li class='tabs-title'><a href='#panel5'>Tab 5</a></li>
+                <li class='tabs-title'><a href='#panel6'>Tab 6</a></li>
+            </ul>
+            <div class='tabs-content' data-tabs-content='example-tabs'>
+                <div class='tabs-panel is-active' id='panel1'>
+                    <p>one</p>
+                    <p>Check me out! I&#39;m a super cool Tab panel with text content!</p>
+                </div>
+                <div class='tabs-panel' id='panel2'>
+                    <p>two</p>
+                    <img class='thumbnail' src='http://placehold.it/280x280/b7b8c7/f3f1ef?text=Sample+image'>
+                </div>
+                <div class='tabs-panel' id='panel3'>
+                    <p>three</p>
+                    <p>Check me out! I&#39;m a super cool Tab panel with text content!</p>
+                </div>
+                <div class='tabs-panel' id='panel4'>
+                    <p>four</p>
+                    <img class='thumbnail' src='http://placehold.it/290x200/b7b8c7/f3f1ef?text=Sample+image'>
+                </div>
+                <div class='tabs-panel' id='panel5'>
+                    <p>five</p>
+                    <p>Check me out! I&#39;m a super cool Tab panel with text content!</p>
+                </div>
+                <div class='tabs-panel' id='panel6'>
+                    <p>six</p>
+                    <img class='thumbnail' src='http://placehold.it/380x210/b7b8c7/f3f1ef?text=Sample+image'>
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Thumbnail', 'http://foundation.zurb.com/sites/docs/thumbnail.html') }}
+
+            <div class='row'>
+                <div class='small-4 columns'>
+                    <img class='thumbnail' src='http://placehold.it/220x220/b7b8c7/f3f1ef?text=Sample+image' alt=''>
+                </div>
+                <div class='small-4 columns'>
+                    <img class='thumbnail' src='http://placehold.it/220x220/b7b8c7/f3f1ef?text=Sample+image' alt=''>
+                </div>
+                <div class='small-4 columns'>
+                    <img class='thumbnail' src='http://placehold.it/220x220/b7b8c7/f3f1ef?text=Sample+image' alt=''>
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Title Bar', 'http://foundation.zurb.com/sites/docs/title-bar.html') }}
+
+            <div class='title-bar'>
+                <div class='title-bar-left'>
+                    <button class='menu-icon' type='button'></button>
+                    <span class='title-bar-title'>Foundation</span>
+                </div>
+                <div class='title-bar-right'>
+                    <button class='menu-icon' type='button'></button>
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Toggler', 'http://foundation.zurb.com/sites/docs/toggler.html') }}
+
+            <p><a data-toggle='menuBar'>Expand!</a></p>
+            <ul class='menu' id='menuBar' data-toggler='.expanded'>
+                <li><a href='#'>One</a></li>
+                <li><a href='#'>Two</a></li>
+                <li><a href='#'>Three</a></li>
+                <li><a href='#'>Four</a></li>
+            </ul>
+            <hr />
+
+            {{ docs.render('Tooltip', 'http://foundation.zurb.com/sites/docs/tooltip.html') }}
+
+            <p>The <span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover="false" title='Fancy word for a beetle.'>scarabaeus</span> hung quite clear of any branches, and, if allowed to fall, would have fallen at our feet. Legrand immediately took the scythe, and cleared with it a circular space, three or four yards in diameter, just beneath the insect, and, having accomplished this, ordered Jupiter to let go the string and come down from the tree.</p>
+            <hr />
+
+            {{ docs.render('Top Bar', 'http://foundation.zurb.com/sites/docs/top-bar.html') }}
+
+            <div class="top-bar">
+                <div class="row columns">
+                    <h1 class="top-bar-title p">
+                        <a href="/">Page title</a>
+                    </h1>
+
+                    <div class="top-bar-right">
+                        <nav class="mega-menu">
+                            <h2 class="show-for-sr">Main menu</h2>
+                            <ul class="menu">
+                                <li class="active"><a href="#" data-toggle="#">Item 1</a></li>
+                                <li><a href="#">Item 2</a></li>
+                                <li><a href="#">Item 3</a></li>
+                                <li><a href="#">Item 4</a></li>
+                                <li><a href="#">Item 5</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            {{ docs.render('Visibility Classes', 'http://foundation.zurb.com/sites/docs/visibility-classes.html') }}
+
+            <p>You are on a small screen or larger.</p>
+            <p class='show-for-medium'>You are on a medium screen or larger.</p>
+            <p class='show-for-large'>You are on a large screen or larger.</p>
+            <p class='show-for-small-only'>You are <em>definitely</em> on a small screen.</p>
+            <p class='show-for-medium-only'>You are <em>definitely</em> on a medium screen.</p>
+            <p class='show-for-large-only'>You are <em>definitely</em> on a large screen.</p>
+            <p class='hide-for-medium'>You are <em>not</em> on a medium screen or larger.</p>
+            <p class='hide-for-large'>You are <em>not</em> on a large screen or larger.</p>
+            <p class='hide-for-small-only'>You are <em>definitely not</em> on a small screen.</p>
+            <p class='hide-for-medium-only'>You are <em>definitely not</em> on a medium screen.</p>
+            <p class='hide-for-large-only'>You are <em>definitely not</em> on a large screen.</p>
+            <p class='hide'>Can&#39;t touch this.</p>
+            <p class='invisible'>Can sort of touch this.</p>
+            <p class='show-for-landscape'>You are in landscape orientation.</p>
+            <p class='show-for-portrait'>You are in portrait orientation.</p>
+            <p class='show-for-sr'>This text can only be read by a screen reader.</p>
+            <p>There&#39;s a line of text above this one, you just can&#39;t see it.</p>
+            <p aria-hidden='true'>This text can be seen, but won&#39;t be read by a screen reader.</p>
+            <p><a class='show-on-focus' href='#mainContent'>Skip to Content</a></p>
+            <header id='header' role='banner'></header>
+            <main id='mainContent' role='main' tabindex='0'></main>
+        </div>
+
+        <div class="small-12 large-4 xlarge-3 xxlarge-2 columns hide-for-small show-for-large" data-sticky-container>
+            <div class="sticky" data-sticky data-anchor="main-column" data-margin-top="0" data-margin-bottom="0">
+                {% include "partials/navigation.html" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
