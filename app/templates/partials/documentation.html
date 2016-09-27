@@ -1,6 +1,0 @@
-{% macro render(name, url) %}
-    <h2 id="{{name | lower | replace(' ', '-')}}" data-magellan-target="{{name | lower | replace(' ', '-')}}">{{name}} <a href="#{{name | lower | replace(' ', '-')}}" class="ss-icon ss-link docs__anchor"></a></h2>
-    {% if url %}
-    <p class="docs__description">View Foundation 6 <a href="{{url}}" title="{{name}}" target="_blank" class="docs__link">{{ name }}</a> documentation</p>
-    {% endif %}
-{% endmacro %}

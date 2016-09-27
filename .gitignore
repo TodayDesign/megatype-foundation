@@ -1,9 +1,0 @@
-.DS_Store
-vendor/
-bower_components/
-node_modules/
-
-# caches and temp dirs
-.sass-cache
-.tmp
-dist
